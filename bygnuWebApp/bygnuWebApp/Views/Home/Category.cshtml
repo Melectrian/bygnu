@@ -1,0 +1,98 @@
+﻿@using bygnuWebApp.Models
+
+
+@{
+    ViewBag.Title = "Category";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-title">
+
+                @if ( (bool) ViewBag.search)
+                {
+                    @Html.Raw("Search Result ( " + ViewBag.searchStr + " )" )
+                }
+                else {
+                    @Html.Raw(ViewBag.category)
+                }
+
+            </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-9">
+            <div id="product_container" @if(!(bool) ViewBag.search) { @Html.Raw("data-category=" + ViewBag.category); } class="row">
+
+                @{
+
+                    List<product> productList;
+
+                    if ((bool) ViewBag.search)
+                    {
+                        productList = DBHandler.searchProducts(ViewBag.searchStr);
+                    }
+                    else
+                    {
+                        productList = DBHandler.getProductList(0, 5, ViewBag.category);
+                    }
+
+                }
+
+                @foreach (product p in productList)
+                {
+                    <div class="col-sm-6 col-md-4 col-lg-4">
+                        <article class="offer">
+
+                            <span class="offer__id">@p.productID</span>
+                            <h2 class="offer__title">@p.name</h2>
+                            <img class="offer__media" src="~/Content/img/offer.jpg" />
+                            <p class="offer__description">@p.description</p>
+
+                            <p class="offer__price @if ((bool)p.isDiscounted) { @Html.Raw("offer__discount") } ">
+
+                                @if ((bool)p.isDiscounted)
+                                {
+
+                                    @p.discountPrice
+
+                                }
+                                else {
+
+                                    @p.price
+
+                                }
+
+                                <span class="offer__price-currency">
+                                    DKK
+                                </span>
+                            </p>
+
+                            <div class="offer__link-box">
+                                <a class="offer__about link pull-left" href="#">Read more</a>
+                                <button class="offer__cart btn pull-right">Buy</button>
+                            </div>
+
+                        </article>
+
+                    </div>
+                }
+
+            </div>
+        </div>
+        <div class="col-lg-3 hidden-mobile">
+            @Html.Partial("_SidebarPartial")
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+
+            @if (!(bool) ViewBag.search)
+            {
+                <a id="product_load" class="link">Show more</a>
+            }
+            
+        </div>
+    </div>
+</div>

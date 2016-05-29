@@ -1,0 +1,95 @@
+﻿@using bygnuWebApp.Models
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-9">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-title">Top offers & discounts</h1>
+                </div>
+            </div>
+            <div class="row">
+
+                @foreach (product p in DBHandler.getTopOffers())
+                {
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <article class="offer">
+
+                            <span class="offer__id">@p.productID</span>
+                            <h2 class="offer__title">@p.name</h2>
+                            <img class="offer__media" src="~/Content/img/offer.jpg" />
+                            <p class="offer__description">@p.description</p>
+
+                            <p class="offer__price offer__discounted">
+                                @p.price
+                                <span class="offer__price-currency">
+                                    DKK
+                                </span>
+                            </p>
+                            <p class="offer__discount">
+                                /@p.discountPrice
+                                <span class="offer__price-currency">
+                                    DKK
+                                </span>
+                            </p>
+
+                            <div class="offer__link-box">
+                                <a class="offer__about link pull-left" href="#">Read more</a>
+                                <button class="offer__cart btn pull-right">Buy</button>
+                            </div>
+
+                        </article>
+                    </div>
+                }
+
+            </div>
+
+            <div class="row">
+
+                @foreach (product p in DBHandler.getDiscounted())
+                {
+                    <div class="col-sm-6 col-md-4 col-lg-4">
+                        <article class="offer">
+
+                            <span class="offer__id">@p.productID</span>
+                            <h2 class="offer__title">@p.name</h2>
+                            <img class="offer__media" src="~/Content/img/offer.jpg" />
+                            <p class="offer__description">@p.description</p>
+
+                            <p class="offer__price offer__discounted">
+                                @p.price
+                                <span class="offer__price-currency">
+                                    DKK
+                                </span>
+                            </p>
+                            <p class="offer__discount">
+                                /@p.discountPrice
+                                <span class="offer__price-currency">
+                                    DKK
+                                </span>
+                            </p>
+
+                            <div class="offer__link-box">
+                                <a class="offer__about link pull-left" href="#">Read more</a>
+                                <button class="offer__cart btn pull-right">Buy</button>
+                            </div>
+
+                        </article>
+                    </div>
+                }
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 hidden-mobile">
+            @Html.Partial("_SidebarPartial")
+        </div>
+    </div>
+</div>

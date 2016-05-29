@@ -1,0 +1,70 @@
+﻿.form {
+
+}
+
+    .form__group {
+        margin-bottom: 30px;
+    }
+
+    .form__label, .form__field, .form__validation {
+        margin-bottom: 10px;
+    }
+
+    .form__label {
+        display: inline-block;
+    }
+
+        .form__label--strong, form__validation--strong {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .form__label--weak, form__validation--weak {
+            font-size: .9rem;
+            font-weight: 300;
+        }
+
+    .form__field {
+        display: block;
+        max-width: 400px;
+        width: 100%;
+    }
+
+        %form__field--style {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid darken($brand-color, 20%);
+        }
+
+            .form__field--default {
+                @extend %form__field--style;
+            }
+
+            .form__field--checkbox {
+                @extend %form__field--style;
+                display: inline-block;
+                width: 20px;
+            }
+
+            .form__field--select {
+                @extend %form__field--style;
+                display: inline-block;
+                width: 50px;
+                margin-left: 5px;
+            }
+
+            .form__field--submit {
+                @extend %form__field--style;
+                width: 150px;
+                margin-top: 10px;
+                padding: 10px 20px;
+            }
+
+    .form__validation {
+        display: block;
+    }
+
+    .form__validation--default {
+        color: $brand-color;
+        font-style: italic;
+    }

@@ -1,0 +1,200 @@
+﻿/**
+ * STYLE CONTENT
+ *
+ *
+ * GENERIC
+ * Normalize.css..............level the playing field.
+ *
+ * SETTINGS
+ * Global variables...........SCSS variables such as colors and fonts.
+ * Base styles................Element level styling.
+ *
+ * TOOLS
+ * Mixins.....................useful mixins.
+ * Helper classes.............Bring styling back to html!
+ * Grid system................for defining the layout.
+ *
+ * COMPONENTS
+ * 
+ * Brand......................generates the site logo.
+ * Navigation.................navigation styles.
+ * Footer.....................footer styles.
+ * Searchbar..................styles for the searchbar.
+ * Offer......................styles for the product box.
+ * Sidebar....................styles for the sidebar.
+ * Form.......................form styles.
+ * List.......................styles for vertical and horizontal lists.
+ * Cart.......................cart styles.
+ * Modal......................modal styles.
+ *
+ * PAGES
+ *
+ * Contact....................styles for contact page.
+ * About......................styles for about page.
+ * Delivery...................styles for delivery page.
+ * Profile pages..............styles for pages related to profile management.
+ */
+
+/*====================================*\
+    #GENERIC
+\*====================================*/
+
+/* #Normalize */
+@import 'normalize';
+
+/*====================================*\
+    #SETTINGS
+\*====================================*/
+
+/* #Global variables */
+@import 'global';
+
+/* #Base styles */
+@import 'base';
+
+/*====================================*\
+    #TOOLS
+\*====================================*/
+
+/* #Mixins */
+@import 'mixins';
+
+/* #Grid system */
+@import 'grid';
+
+/* #Helper classes */
+@import 'helper';
+
+/*====================================*\
+    #COMPONENTS
+\*====================================*/
+
+/* #Brand */
+@import 'brand';
+
+/* #Navigation */
+@import 'navigation';
+
+/* #Footer */
+@import 'footer';
+
+/* #Searchbar */
+@import 'searchbar';
+
+/* #Offer */
+@import 'offer';
+
+/* #Sidebar */
+@import 'sidebar';
+
+/* #Form */
+@import 'form';
+
+/* #List */
+@import 'list';
+
+/* #Cart */
+@import 'cart';
+
+/* #Modal */
+@import 'modal';
+
+/*====================================*\
+    #PAGES
+\*====================================*/
+
+/* #About */
+
+.about {
+    
+    .about__title {
+        margin-bottom: 0;
+    }
+
+    .about__img {
+        width: 100%;
+        border-bottom: 5px solid $brand-color;
+    }
+
+    .about__content {
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+    }
+
+}
+
+/* #Contact */
+
+.contact {
+
+    .contact__content {
+        @extend .sidebar-item;
+        border: none;
+    }
+
+}
+
+/* #Delivery */
+
+.delivery {
+
+    .delivery__content {
+        @extend .sidebar-item;
+        border: none;
+    }
+
+}
+
+/* #Profile */
+
+.manage {
+
+    .manage__title {
+
+    }
+
+    .manage__item {
+        @extend .box;
+    }
+
+    .manage__navigation {
+
+        form {
+            display: none;
+        }
+
+        li {
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        .link {
+            display: inline-block;
+        }
+    }
+
+    .manage__information {
+
+        h4 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin: 5px 0 25px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+        }
+
+    }
+
+}

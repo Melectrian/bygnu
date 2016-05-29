@@ -1,0 +1,87 @@
+﻿$searchHeight: 50px;
+$searchbarGutter: 10px;
+$searchbarWidthDesktop: 700px;
+$searchbarWidthMobile: 100%;
+$searchbarBtnWidth: 100px;
+
+.searchbar {
+
+    padding: $searchbarGutter;
+    padding-left: 50px;
+    min-width: $searchbarWidthMobile;
+
+    &:after {
+        display: table;
+        content: '';
+        clear: both;
+    }
+
+    @media screen and (min-width: $small-screen) {
+
+        & {
+            padding-left: 110px;
+        }
+
+    }
+
+
+    @media screen and (min-width: $large-screen) {
+    
+        & {
+            display: inline-block;
+            min-width: $searchbarWidthDesktop;
+        }
+
+    }
+
+}
+
+    .searchbar__form {
+        position: relative;
+        width: 100%;
+
+    }
+
+        .searchbar__field-wrapper {
+
+            width: 100%;
+            padding-right: $searchbarBtnWidth;
+
+        }
+
+            .searchbar__field {
+                display: inline-block;
+                float: left;
+
+                width: 100%;
+                height: $searchHeight - $searchbarGutter * 2;
+            }
+
+            .searchbar__field--default {
+                border: 1px solid darken($brand-color, 20%);
+                border-right: none;
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+            }
+
+        .searchbar__submit {
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            width: $searchbarBtnWidth;
+            height: $searchHeight - $searchbarGutter * 2;
+        }
+    
+
+        .searchbar__submit--default {
+            padding: 5px 15px;
+
+            color: lighten($brand-color, 100%);
+            background-color: darken($brand-color, 20%);
+            
+            border: 1px solid darken($brand-color, 20%);
+            border-left: none;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }

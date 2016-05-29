@@ -1,0 +1,77 @@
+﻿.offer {
+
+    padding: 10px;
+    margin: 0 auto 40px;
+
+    background-color: lighten($brand-color, 100%);
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,.26);
+
+    &:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+.offer__id {
+    display: none;
+}
+
+.offer__title {
+    margin-bottom: 10px;
+}
+
+.offer__media {
+    max-width: 100%;
+}
+
+.offer__description {
+    padding: 5px 0 20px;
+}
+
+    .offer__price {
+        padding-bottom: 20px;
+
+        font-family: $priceFont;
+        font-size: 2rem;
+
+        letter-spacing: 2px;
+    }
+
+    .offer__discounted {
+        font-size: 1.25rem;
+        text-decoration: line-through;
+    }
+
+    .offer__discount {
+
+        font-family: $priceFont;
+        font-size: 2rem;
+            
+        color: $brand-color;
+        letter-spacing: 2px;
+    }
+
+    .offer__price-currency {
+        font-size: 50%;
+        letter-spacing: 0;
+            
+    }
+
+.offer__link-box {
+
+    margin-top: 20px;
+
+    @extend %clearfix;
+
+}
+
+.offer__about {
+    margin-top: 16px;
+    display: block;
+}
+
+.offer__cart {
+    padding: 10px 20px;
+
+}

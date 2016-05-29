@@ -1,0 +1,43 @@
+﻿body {
+    position: relative;
+
+    color: $text-color;
+    font-family: $sans-serif-primary;
+    background-color: $neutral-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+
+    color: $text-color;
+    font-family: $serif-primary;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    
+    color: $text-color;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    
+    border-bottom: 5px solid $brand-color;
+}
+
+h2 {
+    color: $text-color;
+    font-size: 1.15rem;
+    text-transform: uppercase;
+}
+
+h3 {
+    color: $brand-color;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+h4 {
+    margin: 10px 0;
+    color: $brand-color;
+    font-size: 1.15rem;
+}

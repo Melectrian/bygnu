@@ -1,0 +1,28 @@
+﻿@using Microsoft.AspNet.Identity
+
+<ul class="list">
+
+    <li class="list__item list__item--horizontal">
+        <a class="link brand__link--alternate" id="category-modal-btn" href="javascript:void(0)">Categories</a>
+    </li>
+
+    @if (Request.IsAuthenticated)
+    {
+
+        @Html.AntiForgeryToken()
+
+        <li class="list__item list__item--horizontal">
+            @Html.ActionLink(@User.Identity.GetUserName(), "Index", "Manage", new { @class = "link brand__link--alternate" })
+        </li>
+
+    }
+    else {
+
+        <li class="list__item list__item--horizontal">
+            @Html.ActionLink("Login", "Login", "Account", new { @class = "link brand__link--alternate" })
+        </li>
+
+    }
+
+</ul>
+

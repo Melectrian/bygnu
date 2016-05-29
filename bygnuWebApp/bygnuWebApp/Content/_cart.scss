@@ -1,0 +1,42 @@
+﻿.m-cart {
+
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+
+    width: 70px;
+    height: 70px;
+
+    border-radius: 100%;
+    background-color: $brand-color;
+    border: 2px solid $neutral-color;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.26);
+
+    cursor: pointer;
+}
+
+.m-cart__img {
+    width: 70px;
+    padding: 15px;
+}
+
+.m-cart__count {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 100%;
+    background-color: $brand-color;
+    border: 2px solid $neutral-color;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.26);
+
+    line-height: 30px;
+    vertical-align: middle;
+    text-align: center;
+    color: $neutral-color;
+    font-family: $serif-primary;
+    font-weight: 700;
+}

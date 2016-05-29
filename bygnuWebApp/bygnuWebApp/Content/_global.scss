@@ -1,0 +1,26 @@
+﻿$small-screen: 768px;
+$medium-screen: 992px;
+$large-screen: 1200px;
+
+$navTopHeight: 50px;
+$navBotHeight: 50px;
+
+$brand-color: #E52A31;
+$brand-color-darker: darken($brand-color, 20%);
+$neutral-color: #EEE;
+$text-color: #333;
+
+@font-face {
+	font-family: 'Building';
+	src: url('fonts/BUILD.ttf')  format('truetype');
+}
+
+@font-face {
+	font-family: 'Republica';
+	src: url('fonts/REPUBLICA.ttf')  format('truetype');
+}
+
+$sans-serif-primary: 'Lato';
+$serif-primary: 'Francois One';
+$priceFont: 'Republica';
+$logo: 'Building';

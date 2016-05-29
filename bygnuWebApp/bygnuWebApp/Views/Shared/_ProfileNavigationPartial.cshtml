@@ -1,0 +1,17 @@
+﻿<nav class="manage__navigation manage__item">
+    <ul>
+        <li>
+            @Html.ActionLink("Profile", "Index", "Manage", new { }, new { @class = "link" })
+        </li>
+        <li>
+            @Html.ActionLink("History", "History", "Manage", new { }, new { @class = "link" })
+        </li>
+        <li>
+            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutProfileNavForm" }))
+            {
+                @Html.AntiForgeryToken()
+            }
+            <a class="link" href="javascript:document.getElementById('logoutProfileNavForm').submit()">Log off</a>
+        </li>
+    </ul>
+</nav>

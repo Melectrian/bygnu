@@ -1,0 +1,177 @@
+﻿@using bygnuWebApp.Models;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,400italic,700,300italic|Francois+One:400' rel='stylesheet' type='text/css'>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+
+    <!--
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "" })
+    -->
+
+    <header class="navigation">
+        <div class="navigation__top">
+            <div class="brand brand--absolute">
+                <a class="brand__link brand__link--default" href="@Url.Action("Index", "Home")">
+                    <img class="brand__logo" src="~/Content/img/brand.png" />
+                    <p class="brand__text">BYGNU</p>
+                </a>
+            </div>
+            <nav class="searchbar">
+                @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { @class = "searchbar__form" }))
+                {
+                    <div class="searchbar__field-wrapper">
+                        <input class="searchbar__field searchbar__field--default" name="searchStr" value="@ViewBag.searchStr" type="text" />
+                    </div>
+                    <input class="searchbar__submit searchbar__submit--default" type="submit" value="Search" />
+                }
+            </nav>
+
+            <nav class="login-nav pull-right hidden-mobile">
+                @Html.Partial("_LoginPartial")
+            </nav>
+
+        </div>
+
+        <div class="navigation__bottom navigation__bottom--default">
+            <nav class="menu hidden-lg">
+                @Html.Partial("_LoginMobilePartial")
+            </nav>
+
+            <nav class="hidden-mobile">
+
+                <ul class="list">
+                    @foreach (category c in DBHandler.getCategoryList())
+                    {
+                        <li class="list__item list__item--horizontal">
+                            @Html.ActionLink(c.name, "Category", "Home", new { category = c.name }, new { @class = "list__link link link--alternate" })
+                        </li>
+                    }
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <div class="content">
+        @RenderBody()
+    </div>
+
+
+    @if (Request.IsAuthenticated)
+    {
+        @Html.AntiForgeryToken()
+
+        <div id="m-profile-id" class="m-profile m-modal">
+            <ul>
+                <li>
+                    @Html.ActionLink("Profile", "UserProfile", "Manage")
+                </li>
+                <li>
+                    @Html.ActionLink("Favorite", "Favorite", "Manage")
+                </li>
+                <li>
+                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutFormMobile", @class = "" }))
+                    {
+                        <a href="javascript:document.getElementById('logoutFormMobile').submit()">Log off</a>
+                    }
+                </li>
+            </ul>
+        </div>
+
+    }
+
+    <div id="m-category-id" class="m-category m-modal">
+        <ul>
+            @foreach (category c in DBHandler.getCategoryList())
+            {
+                <li>
+                    @Html.ActionLink(c.name, "Category/" + c.name, "Home")
+                </li>
+            }
+        </ul>
+    </div>
+
+    <footer class="footer">
+
+        <div class="brand brand--large pull-left">
+            <a class="brand__link brand__link--alternate" href="@Url.Action("Index", "Home")">
+                <img class="brand__logo" src="~/Content/img/brand.png" />
+                <p class="brand__text">BYGNU</p>
+            </a>
+        </div>
+
+        <ul class="extra list pull-right">
+            <li class="list__item list__item--horizontal">
+                @Html.ActionLink("Contact", "Contact", "Home", new { @class = "list_link link link--alternate" })
+            </li>
+            <li class="list__item list__item--horizontal">
+                @Html.ActionLink("About", "About", "Home", new { @class = "list_link link link--alternate" })
+            </li>
+            <li class="list__item list__item--horizontal">
+                @Html.ActionLink("Delivery", "Delivery", "Home", new { @class = "list_link link link--alternate" })
+            </li>
+        </ul>
+
+    </footer>
+
+    <div class="m-cart">
+        <a href="~/Home/Cart">
+            <img class="m-cart__img" src="~/Content/img/cart.png" />
+            <div class="m-cart__count">0</div>
+        </a>
+    </div>
+
+    <div id="cart_modal" class="modal">
+        <div class="modal__content box">
+            <div class="modal__close">X</div>
+            <div class="">
+                <h3 class="modal__title">Add to cart</h3>
+                <span id="cart_modal__id"></span>
+                <p id="cart_modal__product_name">Product name</p>
+                    <label for="cart_modal__quantity" class="form__label form__label--weak">Quantity: </label>
+                    <select id="cart_modal__quantity" class="form__field form__field--select" name="cartItem">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                    </select>
+                <button id="cart_modal__complete" class="modal__confirm btn">Add to cart</button>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/script")
+    @RenderSection("scripts", required: false)
+
+    <script>
+
+        $('#m-category-id').click(function () {
+
+            $('#m-category-id').toggle();
+
+        });
+
+    </script>
+
+</body>
+
+</html>

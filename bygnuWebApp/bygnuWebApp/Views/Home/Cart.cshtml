@@ -1,0 +1,25 @@
+﻿@using bygnuWebApp.Models
+
+
+@{
+    ViewBag.Title = "Cart";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-title">Product cart</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="cart">
+                <form class="form" action="~/Manage/CheckOut" method="POST">
+                    <article class="cart__item box">
+                        <input  id="order_complete" class="btn form__field form__field--submit" type="submit" value="submit" />
+                    </article>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>

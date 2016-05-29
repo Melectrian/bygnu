@@ -1,0 +1,13 @@
+﻿.list {
+    padding: 0;
+}
+
+    .list__item {
+        line-height: 30px;
+        padding: 10px;
+    }
+
+    .list__item--horizontal {
+        display: inline-block;
+        text-align: center;
+    }

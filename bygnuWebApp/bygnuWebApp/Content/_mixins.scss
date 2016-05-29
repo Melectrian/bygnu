@@ -1,0 +1,34 @@
+﻿@mixin fontComplete($color, $family, $weight, $size) {
+    
+    color: $color;
+    font-family: $family;
+    font-weight: $weight;
+    font-size: $size;
+
+}
+
+@mixin fontPartial($weight, $size) {
+
+    font-weight: $weight;
+    font-size: $size;
+
+}
+
+@mixin fontPartialColor($color, $weight, $size) {
+
+    color: $color;
+    font-weight: $weight;
+    font-size: $size;
+
+}
+
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}

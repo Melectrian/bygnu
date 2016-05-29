@@ -1,0 +1,65 @@
+﻿.btn {
+    display: inline-block;
+        
+    @include fontComplete(lighten($brand-color, 100%), $serif-primary, 700, 1.1rem);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    outline: none;
+    border: none;
+    border-radius: 5px;
+
+    background-color: $brand-color-darker;
+
+    cursor: pointer;
+}
+
+.link {
+
+    padding-bottom: 3px;
+
+    
+    @include fontPartialColor($text-color, 700, 1rem);
+    text-decoration: none;
+
+    border-bottom: 3px solid $brand-color;
+    cursor: pointer;
+
+    &:active {
+        color: lighten($brand-color, 100%);
+    }
+}
+
+.link--alternate {
+    color: lighten($text-color, 100%);
+}
+
+.box {
+    padding: 30px;
+    margin-bottom: 20px;
+
+    background-color: lighten($brand-color, 100%);
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,.26);
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.content {
+    padding: 150px 0;
+    min-height: 100vh;
+}
+
+.extra {
+    margin-right: 100px;
+}
+
+.dispaly-inline-block {
+    display: inline-block;
+}

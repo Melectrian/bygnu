@@ -1,0 +1,98 @@
+﻿.container {
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.row {
+  margin: 0 -20px;
+  @extend %clearfix;
+  
+  &>div {
+    width: 100%;
+    float: left;
+    padding: 0 20px;
+  }
+  
+}
+
+@mixin breakpoint-gen($container-width, $screen) {
+
+  @media screen and (min-width: $screen) {
+
+    .container {
+      max-width: $container-width;
+    }
+
+  }
+  
+}
+
+@include breakpoint-gen(720px, $small-screen);
+@include breakpoint-gen(940px, $medium-screen);
+@include breakpoint-gen(1280px, $large-screen);
+
+.fluid-container {
+  width: 100%;
+  padding: 0 20px;
+}
+
+@mixin col-media-generator($size, $property, $screen) {
+  
+  @media screen and (#{$property}:$screen) {
+    
+    @for $i from 1 through 12 {
+
+      .col-#{$size}-#{$i} {
+        width: 100% * ($i / 12) !important;
+      }
+
+    }
+    
+  }
+  
+}
+
+@include col-media-generator('xs', 'max-width', $small-screen -1);
+@include col-media-generator('sm', 'min-width', $small-screen);
+@include col-media-generator('md', 'min-width', $medium-screen);
+@include col-media-generator('lg', 'min-width', $large-screen);
+
+@media screen and (max-width: $small-screen - 1) {
+
+    .hidden-xs {
+        display: none !important;
+    }
+
+}
+
+@media (min-width: $small-screen) and (max-width: $medium-screen - 1) {
+
+    .hidden-sm {
+        display: none !important;
+    }
+
+}
+
+@media (min-width: $medium-screen) and (max-width: $large-screen - 1) {
+
+    .hidden-md {
+        display: none !important;
+    }
+
+}
+
+@media screen and (min-width: $large-screen) {
+
+    .hidden-lg {
+        display: none !important;
+    }
+
+}
+
+@media screen and (max-width: $large-screen - 1) {
+
+    .hidden-mobile {
+        display: none !important;
+    }
+
+}

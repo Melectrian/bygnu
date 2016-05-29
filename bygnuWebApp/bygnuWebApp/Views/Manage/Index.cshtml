@@ -1,0 +1,53 @@
+﻿@using Microsoft.AspNet.Identity;
+@using bygnuWebApp.Models
+@model AspNetUsers
+
+@{
+    ViewBag.Title = "Profile";
+}
+
+<div class="container manage">
+
+    <div class="row">
+        <div class="col-lg-12">
+
+            @Html.Partial("_ProfileNavigationPartial")
+
+            <div class="col-lg-12">
+                <h1 class="page-title manage__title">Profile</h1>
+            </div>
+
+            <div class="manage__information manage__item">
+                <ul>
+                    @{
+                        AspNetUsers user = DBHandler.getProfile(User.Identity.GetUserId());
+
+                        <li>
+                            <h4>First name</h4>
+                            <p>@user.FirstName</p>
+                        </li>
+                        <li>
+                            <h4>Last name</h4>
+                            <p>@user.LastName</p>
+                        </li>
+                        <li>
+                            <h4>Email</h4>
+                            <p>@user.Email</p>
+                        </li>
+                        <li>
+                            <h4>Phone</h4>
+                            <p>@user.PhoneNumber</p>
+                        </li>
+                        <li>
+                            <h4>Company name</h4>
+                            <p>@user.CompanyName</p>
+                        </li>
+
+                    }
+                </ul>
+                @Html.ActionLink("Edit Profile", "EditProfile", "Manage", new { }, new { @class = "btn" })
+            </div>
+
+        </div>
+    </div>
+</div>

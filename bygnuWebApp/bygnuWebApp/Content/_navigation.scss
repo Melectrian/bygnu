@@ -1,0 +1,21 @@
+﻿.navigation {
+    position: fixed;
+    width: 100%;
+    background-color: $neutral-color;
+
+    .navigation__top {
+        position: relative;
+        height: $navTopHeight;
+
+    }
+
+    .navigation__bottom {
+        height: $navBotHeight;
+        box-shadow: 0 1px 5px 0 rgba(0,0,0,.26);
+    }
+
+    .navigation__bottom--default {
+        background-color: $brand-color;
+    }
+
+}
